@@ -21,8 +21,8 @@ class AddressBookAppTests {
     void givenContact_whenAdded_shouldIncreaseListSize() {
 
         Contact contact = new Contact(
-                "Suyash",
-                "Sharma",
+                "Priyanshu",
+                "Mishra",
                 "Bhopal",
                 "Bhopal",
                 "MP",
@@ -58,8 +58,8 @@ class AddressBookAppTests {
     void givenDuplicateContact_whenAdded_shouldNotIncreaseListSize() {
 
         Contact c1 = new Contact(
-                "Suyash",
-                "Sharma",
+                "Priyanshu",
+                "Mishra",
                 "Bhopal",
                 "Bhopal",
                 "MP",
@@ -68,8 +68,8 @@ class AddressBookAppTests {
                 "pm@gmail.com");
 
         Contact c2 = new Contact(
-                "Suyash",
-                "sharma",
+                "Priyanshu",
+                "Mishra",
                 "Bhopal",
                 "Bhopal",
                 "MP",
@@ -82,4 +82,5 @@ class AddressBookAppTests {
 
         assertEquals(1, addressBook.getContacts().size());
     }
+    
 }
