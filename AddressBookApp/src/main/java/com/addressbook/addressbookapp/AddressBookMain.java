@@ -53,7 +53,7 @@ public class AddressBookMain {
                     break;
 
                 case 4:
-                    System.out.println("Exiting...");
+                    System.out.println("Exiting");
                     scanner.close();
                     return;
             }
