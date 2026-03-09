@@ -1,10 +1,11 @@
 package com.addressbook.addressbookapp;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.addressbook.addressbookapp.model.Contact;
 import com.addressbook.addressbookapp.service.AddressBook;
 import com.addressbook.addressbookapp.service.AddressBookSystem;
 
@@ -18,34 +19,50 @@ class AddressBookSystemTests {
     }
 
     @Test
-    void givenAddressBookName_whenAdded_shouldCreateAddressBook() {
+    void givenCity_whenViewed_shouldReturnCorrectContacts() {
 
         system.addAddressBook("Friends");
 
         AddressBook book = system.getAddressBook("Friends");
 
-        assertNotNull(book);
+        Contact c1 = new Contact(
+                "Priyanshu","Mishra","Bhopal","Bhopal",
+                "MP","462001","9999999999","pm@gmail.com");
+
+        Contact c2 = new Contact(
+                "Rahul","Sharma","Delhi","Delhi",
+                "DL","110001","8888888888","rs@gmail.com");
+
+        book.addContact(c1);
+        book.addContact(c2);
+
+        system.addToDictionary(c1);
+        system.addToDictionary(c2);
+
+        assertEquals(1, system.searchByCity("Bhopal").size());
     }
 
     @Test
-    void givenMultipleAddressBooks_whenAdded_shouldStoreAll() {
+    void givenState_whenViewed_shouldReturnCorrectContacts() {
 
         system.addAddressBook("Friends");
-        system.addAddressBook("Family");
-        system.addAddressBook("Office");
 
-        assertNotNull(system.getAddressBook("Friends"));
-        assertNotNull(system.getAddressBook("Family"));
-        assertNotNull(system.getAddressBook("Office"));
-    }
+        AddressBook book = system.getAddressBook("Friends");
 
-    @Test
-    void givenAddressBook_whenRetrieved_shouldReturnCorrectInstance() {
+        Contact c1 = new Contact(
+                "Priyanshu","Mishra","Bhopal","Bhopal",
+                "MP","462001","9999999999","pm@gmail.com");
 
-        system.addAddressBook("Work");
+        Contact c2 = new Contact(
+                "Ankit","Verma","Indore","Indore",
+                "MP","452001","7777777777","av@gmail.com");
 
-        AddressBook book = system.getAddressBook("Work");
+        book.addContact(c1);
+        book.addContact(c2);
 
-        assertTrue(book instanceof AddressBook);
+        system.addToDictionary(c1);
+        system.addToDictionary(c2);
+
+        assertEquals(2, system.searchByState("MP").size());
     }
 }
