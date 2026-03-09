@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.addressbook</groupId>
-	<artifactId>AddressBookApp</artifactId>
+	<artifactId>addressbookapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>AddressBookApp</name>
 	<description>Demo project for Spring Boot</description>
@@ -40,6 +40,12 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency> <groupId>org.junit.jupiter</groupId> <artifactId>junit-jupiter</artifactId> <version>5.9.2</version> <scope>test</scope> </dependency>
+	<dependency>
+    <groupId>com.opencsv</groupId>
+    <artifactId>opencsv</artifactId>
+    <version>5.9</version>
+</dependency>
 	</dependencies>
 
 	<build>
